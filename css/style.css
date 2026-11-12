@@ -1,1 +1,60 @@
-/* code css à faire */
+/* --- menu (popover plein écran) ------------------------------------------ */
+/* Le navigateur place déjà le popover dans la fenêtre ; ces dimensions
+   l'étirent sur tout l'écran sans remplacer son positionnement natif. */
+.menu {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  box-sizing: border-box;
+  transition: 400ms allow-discrete;
+  opacity: 0;
+}
+
+/* :popover-open ne cible le menu que lorsqu'il est affiché.
+   allow-discrete autorise aussi la transition des propriétés discrètes comme display. */
+.menu:popover-open {
+  opacity: 1;
+}
+
+/* :has() détecte le popover ouvert pour empêcher le défilement de la page derrière lui. */
+html:has(.menu:popover-open) {
+  overflow: hidden;
+}
+
+/* @starting-style fournit l'opacité de départ, même si le menu était en display: none. */
+@starting-style {
+  .menu:popover-open {
+    opacity: 0;
+  }
+}
+
+/* --- boutons hamburger --------------------------------------------------- */
+.burger {
+  cursor: pointer;
+}
+
+/* Au début de l'ouverture, le bouton est droit ; il pivote ensuite quand le menu est ouvert. */
+@starting-style {
+  .menu:popover-open .burger--close {
+    transform: none;
+  }
+}
+
+.menu:popover-open .burger--close {
+  transform: rotate(90deg);
+  transition: 400ms;
+}
+
+/* Si la personne préfère moins de mouvement, les transitions sont désactivées. */
+@media (prefers-reduced-motion: reduce) {
+  .menu,
+  .menu .burger--close {
+    transition: none;
+  }
+}
+
+/* Documentation MDN :
+   :popover-open — https://developer.mozilla.org/fr/docs/Web/CSS/:popover-open
+   :has() — https://developer.mozilla.org/fr/docs/Web/CSS/:has
+   @starting-style — https://developer.mozilla.org/fr/docs/Web/CSS/@starting-style
+   prefers-reduced-motion — https://developer.mozilla.org/fr/docs/Web/CSS/@media/prefers-reduced-motion */
