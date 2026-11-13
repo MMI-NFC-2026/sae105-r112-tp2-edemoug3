@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Test de menu</title>
+  <title>Accueil | Chats et chiens</title>
   <link rel="stylesheet" href="src/css/styles.css">
 </head>
 
@@ -20,7 +20,7 @@
     <!-- popover crée un panneau natif masqué par défaut ; sa valeur vide équivaut à popover="auto"
          (fermeture possible avec Échap ou en cliquant à l'extérieur).
          Documentation : https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Global_attributes/popover -->
-    <nav class="menu" id="menu" popover aria-label="Main menu">
+    <nav class="menu" id="menu" popover aria-label="Menu principal">
       <!-- popovertargetaction="hide" ferme explicitement le menu ; autofocus place le focus ici à son ouverture.
            Documentation : https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Global_attributes/autofocus -->
       <button
@@ -28,16 +28,28 @@
         type="button"
         popovertarget="menu"
         popovertargetaction="hide"
-        aria-label="Close the menu"
+        aria-label="Fermer le menu"
         autofocus
       >
         🍔
       </button>
-      <ul class="menu__list">
-        <li class="menu__item"><a class="menu__link" href="#">Item de menu un</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Item de menu deux</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Item de menu trois</a></li>
-        <li class="menu__item"><a class="menu__link" href="#">Item de menu quatre</a></li>
+      <h4>Menu</h4>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li>
+          <a href="cats/index.html">Chats</a>
+          <ul>
+            <li><a href="cats/chat-1.html">Chat qui bâille</a></li>
+            <li><a href="cats/chat-2.html">Chat tigré prudent</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="dogs/index.html">Chiens</a>
+          <ul>
+            <li><a href="dogs/chien-1.html">Berger allemand</a></li>
+            <li><a href="dogs/chien-2.html">Berger allemand qui veut jouer</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
     <!-- Fin du menu principal -->
@@ -45,11 +57,14 @@
 
   <!-- Contenu principal de la page -->
   <main>
-    <h1>Test de menu</h1>
+    <h1>Chats et chiens</h1>
     <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam fugit maiores accusamus quisquam ad veritatis
-      officiis numquam ex rem porro, amet sapiente eaque. Rerum excepturi eaque atque ipsa quos mollitia.
+      Bienvenue ! Découvrez les chats et les chiens à travers les pages de ce site.
     </p>
+    <ul>
+      <li><a href="cats/index.html">Voir les chats</a></li>
+      <li><a href="dogs/index.html">Voir les chiens</a></li>
+    </ul>
   </main>
   <!-- Fin du contenu principal -->
 
